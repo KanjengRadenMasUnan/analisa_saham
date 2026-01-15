@@ -1,8 +1,4 @@
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
-=======
-import 'package:google_fonts/google_fonts.dart';
->>>>>>> 7fc534e96433993aa512f8e598f408c960b8efd9
 import 'portfolio_screen.dart';
 import 'market_screen.dart';
 import 'news_screen.dart';

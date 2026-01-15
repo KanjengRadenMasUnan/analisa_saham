@@ -1,15 +1,9 @@
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
 import 'package:google_fonts/google_fonts.dart'; // Pastikan package ini ada
 import 'market_screen.dart';
 import 'portfolio_screen.dart';
 import 'news_screen.dart';
 import 'about_screen.dart';
-=======
-import 'market_screen.dart';
-import 'portfolio_screen.dart';
-import 'news_screen.dart';
->>>>>>> 7fc534e96433993aa512f8e598f408c960b8efd9
 
 class HomeDashboard extends StatefulWidget {
   const HomeDashboard({super.key});
@@ -25,15 +19,11 @@ class _HomeDashboardState extends State<HomeDashboard> {
     const MarketScreen(),
     const PortfolioScreen(),
     const NewsScreen(),
-<<<<<<< HEAD
     const AboutScreen(),
-=======
->>>>>>> 7fc534e96433993aa512f8e598f408c960b8efd9
   ];
 
   @override
   Widget build(BuildContext context) {
-<<<<<<< HEAD
     // Deteksi Ukuran Layar
     final width = MediaQuery.of(context).size.width;
     final isDesktop = width > 900;
@@ -169,53 +159,5 @@ class _HomeDashboardState extends State<HomeDashboard> {
         ),
       );
     }
-=======
-    return Scaffold(
-      body: Row(
-        children: [
-          // 1. SIDEBAR NAVIGATION (Desktop Style)
-          NavigationRail(
-            selectedIndex: _selectedIndex,
-            onDestinationSelected: (int index) {
-              setState(() {
-                _selectedIndex = index;
-              });
-            },
-            backgroundColor: Colors.white,
-            elevation: 5,
-            labelType: NavigationRailLabelType.all,
-            leading: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 20),
-              child: Icon(Icons.candlestick_chart_rounded, size: 40, color: Theme.of(context).primaryColor),
-            ),
-            destinations: const [
-              NavigationRailDestination(
-                icon: Icon(Icons.show_chart_rounded),
-                selectedIcon: Icon(Icons.show_chart, fill: 1),
-                label: Text('Market'),
-              ),
-              NavigationRailDestination(
-                icon: Icon(Icons.pie_chart_outline),
-                selectedIcon: Icon(Icons.pie_chart),
-                label: Text('Portfolio'),
-              ),
-              NavigationRailDestination(
-                icon: Icon(Icons.newspaper_outlined),
-                selectedIcon: Icon(Icons.newspaper),
-                label: Text('Berita'),
-              ),
-            ],
-          ),
-          
-          const VerticalDivider(thickness: 1, width: 1),
-
-          // 2. MAIN CONTENT AREA
-          Expanded(
-            child: _pages[_selectedIndex],
-          ),
-        ],
-      ),
-    );
->>>>>>> 7fc534e96433993aa512f8e598f408c960b8efd9
   }
 }

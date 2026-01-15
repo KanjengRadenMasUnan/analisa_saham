@@ -32,15 +32,14 @@ class PortfolioLogic {
       if (avgRoi > kpi.target) passedCount++;
     }
 
-<<<<<<< HEAD
     if (passedCount == kpiList.length) {
       return {"text": "KINERJA SEMPURNA", "score": 3};
-    } else if (passedCount > (kpiList.length / 2)) return {"text": "KINERJA BAIK", "score": 2};
-=======
-    if (passedCount == kpiList.length) return {"text": "KINERJA SEMPURNA", "score": 3};
-    else if (passedCount > (kpiList.length / 2)) return {"text": "KINERJA BAIK", "score": 2};
->>>>>>> 7fc534e96433993aa512f8e598f408c960b8efd9
-    else if (passedCount > 0) return {"text": "KINERJA MODERAT", "score": 1};
-    else return {"text": "KINERJA BURUK", "score": 0};
+    } else if (passedCount > (kpiList.length / 2)) {
+      return {"text": "KINERJA BAIK", "score": 2};
+    } else if (passedCount > 0) {
+      return {"text": "KINERJA MODERAT", "score": 1};
+    } else {
+      return {"text": "KINERJA BURUK", "score": 0};
+    }
   }
 }

@@ -13,11 +13,7 @@ class NewsService {
     // LOGIKA PEMILIHAN URL BERDASARKAN WILAYAH
     switch (region) {
       case "ID": // Indonesia (Fokus Bisnis)
-<<<<<<< HEAD
-        url = "$_baseUrl/top-headlines?country=id&category=economy&apiKey=$_apiKey";
-=======
         url = "$_baseUrl/top-headlines?country=id&category=business&apiKey=$_apiKey";
->>>>>>> 7fc534e96433993aa512f8e598f408c960b8efd9
         break;
       case "US": // Amerika (Fokus Bisnis & Politik)
         url = "$_baseUrl/top-headlines?country=us&category=business&apiKey=$_apiKey";
