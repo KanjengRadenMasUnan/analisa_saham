@@ -1,40 +1,35 @@
-name: Flutter Build Windows
+name: Build Flutter APK
 
 on:
   push:
-    branches: [ main ] # Ganti 'main' jika nama branch utamamu berbeda
+    branches: [ main ] # Berjalan otomatis setiap ada push ke branch main
 
 jobs:
   build:
-    name: Build Windows App
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
-      # 1. Mengambil kode dari repo ke server GitHub
-      - uses: actions/checkout@v4
+    - uses: actions/checkout@v3
 
-      # 2. Menginstal Flutter SDK di server
-      - name: Setup Flutter
-        uses: subosito/flutter-action@v2
-        with:
-          channel: 'stable'
+    - name: Set up Java
+      uses: actions/setup-java@v3
+      with:
+        distribution: 'zulu'
+        java-version: '17'
 
-      # 3. Mengambil package/library yang digunakan proyekmu
-      - name: Install dependencies
-        run: flutter pub get
+    - name: Set up Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        channel: 'stable'
 
-      # 4. Mengaktifkan fitur desktop windows
-      - name: Enable windows support
-        run: flutter config --enable-windows-desktop
+    - name: Install dependencies
+      run: flutter pub get
 
-      # 5. Proses kompilasi menjadi .exe
-      - name: Build Windows
-        run: flutter build windows --release
+    - name: Build APK
+      run: flutter build apk --release
 
-      # 6. Menyimpan hasil build agar bisa diunduh
-      - name: Upload Build Artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: windows-release-app
-          # Jalur folder hasil build flutter
-          path: build/windows/x64/runner/Release/
+    - name: Upload APK Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: release-apk
+        path: build/app/outputs/flutter-apk/app-release.apk
